@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Reset style -->
+  <link rel="stylesheet" href="css/reset.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito:ital,wght@0,400;0,600;0,700;1,300&display=swap"
+    rel="stylesheet">
+  <!-- Swiper Style -->
+  <link rel="stylesheet" href="css/swiperCss/swiper-bundle.min.css" />
+  <!-- Style -->
+  <link rel="stylesheet" href="css/style.css">
+  <title>Revo</title>
+</head>
+
+<body>
+  <header class="header" id="header">
+    <div class="wrapper">
+      <div class="columns">
+        <div class="left-columns">
+          <div class="left-columns__logo">
+            <a href="#" class="left-columns__link">
+              <svg width="124" height="40" viewBox="0 0 124 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <rect width="124" height="40" fill="#F9FBFF" />
+                <path d="M7.29412 3.63635H116.706V40H7.29412V3.63635Z" fill="url(#pattern0)" />
+                <defs>
+                  <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlink:href="#image0_0_237" transform="scale(0.00333333 0.01)" />
+                  </pattern>
+                  <image id="image0_0_237" width="300" height="100"
+                    xlink:href="data:image/png;base64,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" />
+                </defs>
+              </svg>
+            </a>
+          </div>
+          <h1 class="left-columns__title">
+            YOUR <span>PERSONALIZED</span> COFFEE
+          </h1>
+        </div>
+        <div class="middle-columns">
+          <div class="middle-columns__video">
+            <img class="middle-columns__image" src="img/header/background.png" alt="cofe">
+            <div class="middle-columns__start">
+              <a href="#" class="middle-columns__link">
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M11.65 7L0.850024 13.75V0.25L11.65 7Z"
+                    fill="#C7A17A" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="right-columns">
+          <div class="right-columns__store">
+            <a href="#" class="right-columns__link">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1.31755 1.66388H14.7273C14.7677 1.66388 14.8045 1.67932 14.8424 1.69091L15.172 0.589594C15.2768 0.239363 15.5945 0 15.9546 0H17.5909C17.8168 0 18 0.186249 18 0.41598V1.2479C18 1.47763 17.8168 1.66388 17.5909 1.66388H16.5606L14.0045 10.2046L14.9592 11.337C15.3365 11.7846 15.5064 12.4013 15.3327 12.9637C15.1106 13.683 14.4863 14.1429 13.7664 14.1429H2.04544C1.81951 14.1429 1.63634 13.9566 1.63634 13.7269V12.895C1.63634 12.6652 1.81951 12.479 2.04544 12.479H13.7665L12.4697 10.9406C12.4371 10.9019 12.4131 10.8583 12.3884 10.8151H4.46083C3.82675 10.8151 3.24974 10.4428 2.97974 9.8594L0.125029 3.69125C0.0431464 3.51374 0 3.31673 0 3.12131V3.0035C0 2.26369 0.589896 1.66388 1.31755 1.66388Z"
+                  fill="#F9FBFF" />
+                <path
+                  d="M13.1786 18.0001C12.291 18.0001 11.5714 17.2805 11.5714 16.3929C11.5714 15.5053 12.291 14.7858 13.1786 14.7858C14.0662 14.7858 14.7857 15.5053 14.7857 16.3929C14.7857 17.2805 14.0662 18.0001 13.1786 18.0001Z"
+                  fill="white" />
+                <path
+                  d="M3.53574 18.0001C2.64814 18.0001 1.9286 17.2805 1.9286 16.3929C1.9286 15.5053 2.64814 14.7858 3.53574 14.7858C4.42334 14.7858 5.14288 15.5053 5.14288 16.3929C5.14288 17.2805 4.42334 18.0001 3.53574 18.0001Z"
+                  fill="white" />
+              </svg>
+              <span class="right-columns__count">2</span>
+            </a>
+          </div>
+          <h2 class="right-columns__title">TRANG CHỦ</h2>
+          <nav class="right-columns__navigation">
+            <ul class="right-columns__menu">
+              <li class="right-columns__item">
+                <a href="#">COFFEE</a>
+              </li>
+              <li class="right-columns__item">
+                <a href="#">PHIN MẠ MÀU</a>
+              </li>
+              <li class="right-columns__item">
+                <a href="#">COMBO PHIN PHÊ</a>
+              </li>
+              <li class="right-columns__item">
+                <a href="#">GIFTSET</a>
+              </li>
+              <li class="right-columns__item">
+                <a href="#">LIÊN HỆ</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+  </header>
+  <main class="main" id="main">
+    <section class="coffee-build">
+      <div class="coffee-build__wrapper">
+        <div class="coffee-build__body">
+          <p class="coffee-build__subtitle subtitle">Your Personalized Coffee</p>
+          <h3 class="coffee-build__title title">COFFEE BUILD YOUR BASE</h3>
+        </div>
+        <div class="coffee-build__items items">
+          <div class="items__item">
+            <div class="items__img">
+              <img src="img/main/coffee-build/one.png" alt="coffee-shop">
+            </div>
+            <div class="items__body">
+              <h4 class="items__title">Nguồn gốc</h4>
+              <p class="items__text">
+                Những hạt cà phê Arabica, Robusta đạt chất lượng theo tiêu chuẩn quốc tế.
+              </p>
+            </div>
+          </div>
+          <div class="items__item">
+            <div class="items__img">
+              <img src="img/main/coffee-build/two.png" alt="coffee-beans">
+            </div>
+            <div class="items__body">
+              <h4 class="items__title">Chất lượng</h4>
+              <p class="items__text">
+                Từng một hạt cà phê là cả một quá trình tập trung cao độ của nghệ nhân cà phê.
+              </p>
+            </div>
+          </div>
+          <div class="items__item">
+            <div class="items__img">
+              <img src="img/main/coffee-build/three.png" alt="coffee-cup">
+            </div>
+            <div class="items__body">
+              <h4 class="items__title">Các loại hạt</h4>
+              <p class="items__text">
+                70% chất lượng tách cà phê đến từ nguồn gốc và chất lượng green bean.
+              </p>
+            </div>
+          </div>
+          <div class="items__item">
+            <div class="items__img">
+              <img src="img/main/coffee-build/four.png" alt="coffee-machine">
+            </div>
+            <div class="items__body">
+              <h4 class="items__title">Pha chế</h4>
+              <p class="items__text">
+                Những hạt cà phê được lột xác qua quá trình rang xay kỹ lưỡng và nghiêm ngặt.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="products">
+      <div class="products__wrapper swiper products-swiper">
+        <div class="products__body">
+          <p class="products__subtitle subtitle">Choose Your Favorite</p>
+          <h3 class="products__title title">CHUẨN GU ĐÚNG VỊ</h3>
+        </div>
+        <div class="products__items products-items swiper-wrapper unselectable">
+          <div class="products-items__item swiper-slide products-active">
+            <div class="products-items__img">
+              <img src="img/main/products/one.png" alt="coffee">
+            </div>
+            <div class="products-items__body">
+              <div class="products-items__price">99.000</div>
+              <h4 class="products-items__title">
+                <span>REVO</span> Morning
+              </h4>
+              <p class="products-items__text">
+                đắng, hậu ngọt, hương hoa
+              </p>
+              <div class="products-items__buttons">
+                <a href="#" class="products-items__button">
+                  <span>MUA NGAY</span>
+                </a>
+                <a href="#" class="products-items__link">
+                  <span>CHI TIẾT</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="products-items__item swiper-slide">
+            <div class="products-items__img">
+              <img src="img/main/products/four.png" alt="coffee">
+            </div>
+            <div class="products-items__body">
+              <div class="products-items__price">139.000</div>
+              <h4 class="products-items__title">
+                <span>REVO</span> Origin
+              </h4>
+              <p class="products-items__text">
+                hậu ngọt, ít đắng, vị chua dâu
+              </p>
+              <div class="products-items__buttons">
+                <a href="#" class="products-items__button">
+                  <span>MUA NGAY</span>
+                </a>
+                <a href="#" class="products-items__link">
+                  <span>CHI TIẾT</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="products-items__item swiper-slide">
+            <div class="products-items__img">
+              <img src="img/main/products/two.png" alt="coffee">
+            </div>
+            <div class="products-items__body">
+              <div class="products-items__price">139.000</div>
+              <h4 class="products-items__title">
+                <span>REVO</span> Origin
+              </h4>
+              <p class="products-items__text">
+                hậu ngọt, ít đắng, vị chua dâu
+              </p>
+              <div class="products-items__buttons">
+                <a href="#" class="products-items__button">
+                  <span>MUA NGAY</span>
+                </a>
+                <a href="#" class="products-items__link">
+                  <span>CHI TIẾT</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="products-items__item swiper-slide">
+            <div class="products-items__img">
+              <img src="img/main/products/five.png" alt="coffee">
+            </div>
+            <div class="products-items__body">
+              <div class="products-items__price">75.000</div>
+              <h4 class="products-items__title">
+                <span>REVO</span> Đậm Đà
+              </h4>
+              <p class="products-items__text">
+                đậm đà, đắng, truyền thống
+              </p>
+              <div class="products-items__buttons">
+                <a href="#" class="products-items__button">
+                  <span>MUA NGAY</span>
+                </a>
+                <a href="#" class="products-items__link">
+                  <span>CHI TIẾT</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="products-items__item swiper-slide opc">
+            <div class="products-items__img">
+              <img src="img/main/products/three.png" alt="coffee">
+            </div>
+            <div class="products-items__body">
+              <div class="products-items__price">195.000</div>
+              <h4 class="products-items__title">
+                <span>REVO</span> Honey
+              </h4>
+              <p class="products-items__text">
+                độ ngọt cao, hậu ngọt, chua họ táo
+              </p>
+              <div class="products-items__buttons">
+                <a href="#" class="products-items__button">
+                  <span>MUA NGAY</span>
+                </a>
+                <a href="#" class="products-items__link">
+                  <span>CHI TIẾT</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="products-items__item swiper-slide opc">
+            <div class="products-items__img">
+              <img src="img/main/products/six.png" alt="coffee">
+            </div>
+            <div class="products-items__body">
+              <div class="products-items__price">169.000</div>
+              <h4 class="products-items__title">
+                <span>REVO</span> Natural
+              </h4>
+              <p class="products-items__text">
+                hậu ngọt, hương hoa, vị chua dâu
+              </p>
+              <div class="products-items__buttons">
+                <a href="#" class="products-items__button">
+                  <span>MUA NGAY</span>
+                </a>
+                <a href="#" class="products-items__link">
+                  <span>CHI TIẾT</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-arrows">
+          <!-- <div class="custom-prev">
+            <svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.83868 16.7443C8.16564 17.0852 8.70981 17.0852 9.04821 16.7443C9.37517 16.415 9.37517 15.8668 9.04821 15.5382L2.91521 9.3599L23.1533 9.3599C23.625 9.35914 24 8.98139 24 8.50614C24 8.03089 23.625 7.64086 23.1533 7.64086L2.91521 7.64086L9.04821 1.47412C9.37517 1.13323 9.37517 0.584275 9.04821 0.255669C8.70981 -0.085222 8.16488 -0.085222 7.83868 0.255669L0.253796 7.89653C-0.0845975 8.22591 -0.0845975 8.77409 0.253796 9.1027L7.83868 16.7443Z"
+                fill="#F9FBFF" />
+            </svg>
+          </div> -->
+          <div class="custom-next">
+            <svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.1613 0.255668C15.8344 -0.0852227 15.2902 -0.0852227 14.9518 0.255668C14.6248 0.585042 14.6248 1.13323 14.9518 1.46184L21.0848 7.6401H0.846745C0.374976 7.64086 0 8.01861 0 8.49386C0 8.96911 0.374976 9.35914 0.846745 9.35914H21.0848L14.9518 15.5259C14.6248 15.8668 14.6248 16.4157 14.9518 16.7443C15.2902 17.0852 15.8351 17.0852 16.1613 16.7443L23.7462 9.10347C24.0846 8.77409 24.0846 8.22591 23.7462 7.8973L16.1613 0.255668Z"
+                fill="#F9FBFF" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="giftset">
+      <div class="container">
+        <div class="giftset__wrapper">
+          <div class="giftset__body">
+            <p class="giftset__subtitle subtitle">Best Gift For Best Friend</p>
+            <h3 class="giftset__title title">GIFTSET</h3>
+          </div>
+          <div class="giftset__content giftset-content">
+            <div class="giftset-content__img">
+              <img src="img/main/giftset/image.png" alt="coffee">
+            </div>
+            <div class="giftset-content__body">
+              <div class="giftset-content__wrapper">
+                <div class="giftset-content__price">285.000</div>
+                <h4 class="giftset-content__title">Giftset "Cà phê phin Việt Nam"</h4>
+                <p class="giftset-content__text">
+                  Món quà tuyệt vời dành cho người sành cà phê. Hạt cà phê được Revo cẩn trọng chọn lựa, rang xay theo
+                  công nghệ và bí quyết học hỏi từ những nghệ nhân nổi tiếng, cùng với tình yêu, sự đam mê của người làm
+                  cà phê… tạo ra những tách cà phê tinh khiết chỉ dành riêng cho bạn.
+                </p>
+                <div class="giftset-items">
+                  <div class="giftset-items__item">
+                    <div class="giftset-items__img">
+                      <svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M8.99469 18.9842C6.74561 15.1554 6.74029 11.175 6.96892 9.32288C1.6998 11.8303 -1.45317 17.2134 0.668305 22.0386C3.16728 22.2877 6.67117 21.5296 8.99469 18.9842Z"
+                          fill="#415167" />
+                        <path
+                          d="M9.57423 19.9103C7.52188 22.0873 3.99672 23.3167 1.30634 23.1542C3.76278 26.7014 10.2973 28.2611 16.1832 24.8384C13.663 24.2265 11.2863 22.4393 9.57423 19.9103Z"
+                          fill="#415167" />
+                        <path
+                          d="M15.7313 11.9603C12.2114 8.06111 11.919 4.34061 12.4029 1.89819C8.76604 3.98319 6.99017 9.32835 8.41512 14.7764C10.0049 21.0043 15.6568 25.7159 20.9579 23.3438C21.1227 21.5946 20.9047 17.6683 15.7313 11.9603Z"
+                          fill="#415167" />
+                        <path
+                          d="M25.5252 10.1894C23.9088 3.98314 18.5121 -0.305992 13.5992 1.35117C12.8814 3.68528 12.9824 7.43827 16.5342 11.2617C18.1452 13.1571 22.1276 17.6466 22.0532 22.7318C25.3178 20.4356 26.8438 15.3667 25.5252 10.1894Z"
+                          fill="#415167" />
+                      </svg>
+                    </div>
+                    <div class="giftset-items__body">
+                      <p class="giftset-items__text">Loại hạt</p>
+                      <h5 class="giftset-items__title">Fine Robusta Blend</h5>
+                    </div>
+                  </div>
+                  <div class="giftset-items__item">
+                    <div class="giftset-items__img">
+                      <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M14.0193 1.39404C13.8589 1.11733 13.5115 0.982458 13.2456 0.954834C12.9273 0.960028 12.6374 1.13811 12.4864 1.4209L9.375 7.24549L11.0068 9.11612L12.5155 6.68297C12.8364 6.16591 13.6838 6.16591 14.0047 6.68297L15.5135 9.11607L17.2852 7.03748L14.0193 1.39404Z"
+                          fill="#415167" />
+                        <path
+                          d="M18.75 9.59615L18.2335 8.70215L16.152 11.2304C15.9802 11.4679 15.7313 11.623 15.4102 11.5927C15.1192 11.5823 14.8522 11.4262 14.6977 11.1767L13.2451 8.83054L11.7925 11.1767C11.638 11.4263 11.371 11.5823 11.08 11.5927C11.0689 11.5936 11.0577 11.5936 11.0474 11.5936C10.7675 11.5936 10.504 11.4592 10.3382 11.2304L8.44351 8.96136L0.104626 24.4857C-0.0413052 24.7604 -0.0344482 25.0933 0.124376 25.361C0.283201 25.6297 0.569965 25.7935 0.878999 25.7935H10.7786C10.5262 25.0756 10.5704 24.2742 10.9485 23.5982L18.75 9.59615Z"
+                          fill="#415167" />
+                        <path
+                          d="M21.9508 10.3034C21.6387 9.7454 20.7246 9.7454 20.4124 10.3034L18.5742 13.5865L21.1816 16.4494L23.7891 13.5865L21.9508 10.3034Z"
+                          fill="#415167" />
+                        <path
+                          d="M29.8866 24.4724L24.6612 15.2075L21.8278 18.383C21.6605 18.5847 21.4133 18.7016 21.1524 18.7016C20.8915 18.7016 20.6443 18.5847 20.4769 18.383L17.6436 15.2075L12.4767 24.4725C12.3231 24.7469 12.3257 25.0828 12.4836 25.3547C12.6415 25.6265 12.9298 25.7935 13.2422 25.7935H29.121C29.4334 25.7935 29.7218 25.6265 29.8797 25.3546C30.0376 25.0827 30.0402 24.7469 29.8866 24.4724Z"
+                          fill="#415167" />
+                      </svg>
+                    </div>
+                    <div class="giftset-items__body">
+                      <p class="giftset-items__text">Độ cao</p>
+                      <h5 class="giftset-items__title">700 - 800m</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="giftset-buttons">
+                  <a href="#" class="giftset-buttons__button">
+                    <span>MUA NGAY</span>
+                  </a>
+                  <a href="#" class="giftset-buttons__link">CHI TIẾT</a>
+                </div>
+              </div>
+            </div>
+            <nav class="giftset-pagination">
+              <ul class="giftset-pagination__menu">
+                <li class="giftset-pagination__item active">
+                  <a href="#">1</a>
+                </li>
+                <li class="giftset-pagination__item">
+                  <a href="#">2</a>
+                </li>
+                <li class="giftset-pagination__item">
+                  <a href="#">3</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="coffee-combo">
+      <div class="coffee-combo__wrapper swiper coffee-combo-swiper">
+          <div class="coffee-combo__body">
+              <p class="coffee-combo__subtitle subtitle">Your Personalized Coffee</p>
+              <h3 class="coffee-combo__title title">COMBO PHIN PHÊ</h3>
+          </div>
+          <div class="coffee-combo-items swiper-wrapper unselectable">
+              <div class="coffee-combo-items__item swiper-slide coffee-combo-active">
+                  <div class="coffee-combo-items__img">
+                      <img src="img/main/coffee-combo/one.png" alt="coffee">
+                  </div>
+                  <div class="coffee-combo-items__body">
+                      <div class="coffee-combo-items__wrapper">
+                          <div class="coffee-combo-items__prices">
+                              <div class="coffee-combo-items__price">147.000</div>
+                              <div class="coffee-combo-items__price-old">155.000</div>
+                          </div>
+                          <div class="coffee-combo-items__discription">
+                              <h4 class="coffee-combo-items__title">Combo Revo Đậm Đà</h4>
+                              <p class="coffee-combo-items__text">
+                                Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để
+                                làm bạn tỉnh táo làm việ...
+                              </p>
+                          </div>
+                          <div class="coffee-combo-items__buttons">
+                              <a href="#" class="coffee-combo-items__button"><span>MUA NGAY</span></a>
+                              <a href="#" class="coffee-combo-items__link">CHI TIẾT</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="coffee-combo-items__item swiper-slide">
+                  <div class="coffee-combo-items__img">
+                      <img src="img/main/coffee-combo/two.png" alt="coffee">
+                  </div>
+                  <div class="coffee-combo-items__body">
+                      <div class="coffee-combo-items__wrapper">
+                          <div class="coffee-combo-items__prices">
+                              <div class="coffee-combo-items__price">156.000</div>
+                              <div class="coffee-combo-items__price-old">165.000</div>
+                          </div>
+                          <div class="coffee-combo-items__discription">
+                              <h4 class="coffee-combo-items__title">Combo Revo Everyday</h4>
+                              <p class="coffee-combo-items__text">Revo Everyday được phối trộn giữa vị đắng của hạt Robusta và hương thơm...</p>
+                          </div>
+                          <div class="coffee-combo-items__buttons">
+                              <a href="#" class="coffee-combo-items__button"><span>MUA NGAY</span></a>
+                              <a href="#" class="coffee-combo-items__link">CHI TIẾT</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="coffee-combo-items__item swiper-slide">
+                  <div class="coffee-combo-items__img">
+                      <img src="img/main/coffee-combo/three.png" alt="coffee">
+                  </div>
+                  <div class="coffee-combo-items__body">
+                      <div class="coffee-combo-items__wrapper">
+                          <div class="coffee-combo-items__prices">
+                              <div class="coffee-combo-items__price">275.000</div>
+                              <div class="coffee-combo-items__price-old">260.000</div>
+                          </div>
+                          <div class="coffee-combo-items__discription">
+                              <h4 class="coffee-combo-items__title">Combo Revo Honey</h4>
+                              <p class="coffee-combo-items__text">Honey – trong tên gọi Revo Honey đến từ phương pháp chế biến hạt Arabica...</p>
+                          </div>
+                          <div class="coffee-combo-items__buttons">
+                              <a href="#" class="coffee-combo-items__button"><span>MUA NGAY</span></a>
+                              <a href="#" class="coffee-combo-items__link">CHI TIẾT</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="coffee-combo-items__item swiper-slide opc">
+                  <div class="coffee-combo-items__img">
+                      <img src="img/main/coffee-combo/four.png" alt="coffee">
+                  </div>
+                  <div class="coffee-combo-items__body">
+                      <div class="coffee-combo-items__wrapper">
+                          <div class="coffee-combo-items__prices">
+                              <div class="coffee-combo-items__price">249.000</div>
+                              <div class="coffee-combo-items__price-old">236.000</div>
+                          </div>
+                          <div class="coffee-combo-items__discription">
+                              <h4 class="coffee-combo-items__title">Combo Revo Honey</h4>
+                              <p class="coffee-combo-items__text">Revo Natural là dòng cà phê đặc biệt của Revo Coffee dành riêng ...</p>
+                          </div>
+                          <div class="coffee-combo-items__buttons">
+                              <a href="#" class="coffee-combo-items__button"><span>MUA NGAY</span></a>
+                              <a href="#" class="coffee-combo-items__link">CHI TIẾT</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="coffee-combo-swiper-arrows">
+              <!-- <div class="coffee-combo-custom-prev">
+                  <svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M7.83868 16.7443C8.16564 17.0852 8.70981 17.0852 9.04821 16.7443C9.37517 16.415 9.37517 15.8668 9.04821 15.5382L2.91521 9.3599L23.1533 9.3599C23.625 9.35914 24 8.98139 24 8.50614C24 8.03089 23.625 7.64086 23.1533 7.64086L2.91521 7.64086L9.04821 1.47412C9.37517 1.13323 9.37517 0.584275 9.04821 0.255669C8.70981 -0.085222 8.16488 -0.085222 7.83868 0.255669L0.253796 7.89653C-0.0845975 8.22591 -0.0845975 8.77409 0.253796 9.1027L7.83868 16.7443Z"
+                        fill="#F9FBFF" />
+                    </svg>
+              </div> -->
+              <div class="coffee-combo-custom-next">
+                  <svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M16.1613 0.255668C15.8344 -0.0852227 15.2902 -0.0852227 14.9518 0.255668C14.6248 0.585042 14.6248 1.13323 14.9518 1.46184L21.0848 7.6401H0.846745C0.374976 7.64086 0 8.01861 0 8.49386C0 8.96911 0.374976 9.35914 0.846745 9.35914H21.0848L14.9518 15.5259C14.6248 15.8668 14.6248 16.4157 14.9518 16.7443C15.2902 17.0852 15.8351 17.0852 16.1613 16.7443L23.7462 9.10347C24.0846 8.77409 24.0846 8.22591 23.7462 7.8973L16.1613 0.255668Z"
+                        fill="#F9FBFF" />
+                    </svg>
+              </div>
+          </div>
+      </div>
+  </section>
+  </main>
+  <footer class="footer" id="footer">
+    <div class="footer__wrapper">
+      <p class="footer__credits">
+        <span>©</span> Revo Coffee Việt Nam - 2018
+      </p>
+    </div>
+  </footer>
+
+  <!-- Swiper script -->
+  <script src="js/swiper/swiper-bundle.min.js"></script>
+  <!-- My Script -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>
